@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="160" viewBox="0 0 1000 160" role="img" aria-label="Animated footer: thanks for stopping by">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111a33"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
+  </linearGradient>
+</defs>
+<style>
+.up{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.grow{transform-box:fill-box;transform-origin:left center;animation:grow 1.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.rise{transform-box:fill-box;transform-origin:center bottom;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:scaleY(0)}}
+.flt{transform-box:fill-box;transform-origin:center;animation:flt var(--d,6s) ease-in-out var(--t,0s) infinite}
+@keyframes flt{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(6px,-12px) rotate(2.5deg)}66%{transform:translate(-5px,-5px) rotate(-2deg)}}
+.drift{transform-box:fill-box;transform-origin:center;animation:drift var(--d,14s) ease-in-out var(--t,0s) infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-26px,14px) scale(1.06)}}
+.tw{animation:tw var(--d,4s) ease-in-out var(--t,0s) infinite}
+@keyframes tw{0%,100%{opacity:var(--b)}50%{opacity:calc(var(--b) + .45)}}
+.shim{animation:shim 5s ease-in-out var(--t,0s) infinite}
+@keyframes shim{0%,100%{opacity:1}50%{opacity:.45}}
+.bar{transform-box:fill-box;transform-origin:left center;animation:bar 5s ease-in-out infinite}
+@keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
+.sweep{animation:sweep 5s linear infinite}
+@keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.wave{animation:wave var(--d,12s) linear infinite}
+@keyframes wave{to{transform:translateX(-1000px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect width="1000" height="160" rx="16" fill="url(#bg)"/>
+<rect x="0.5" y="0.5" width="999" height="159" rx="15.5" fill="none" stroke="#27324d"/>
+<g class="wave" style="--d:22s"><path d="M0 96 L0 96.0 L20 98.5 L40 100.8 L60 102.8 L80 104.4 L100 105.5 L120 106.0 L140 105.8 L160 105.0 L180 103.7 L200 101.9 L220 99.7 L240 97.3 L260 94.7 L280 92.3 L300 90.1 L320 88.3 L340 87.0 L360 86.2 L380 86.0 L400 86.5 L420 87.6 L440 89.2 L460 91.2 L480 93.5 L500 96.0 L520 98.5 L540 100.8 L560 102.8 L580 104.4 L600 105.5 L620 106.0 L640 105.8 L660 105.0 L680 103.7 L700 101.9 L720 99.7 L740 97.3 L760 94.7 L780 92.3 L800 90.1 L820 88.3 L840 87.0 L860 86.2 L880 86.0 L900 86.5 L920 87.6 L940 89.2 L960 91.2 L980 93.5 L1000 96.0 L1020 98.5 L1040 100.8 L1060 102.8 L1080 104.4 L1100 105.5 L1120 106.0 L1140 105.8 L1160 105.0 L1180 103.7 L1200 101.9 L1220 99.7 L1240 97.3 L1260 94.7 L1280 92.3 L1300 90.1 L1320 88.3 L1340 87.0 L1360 86.2 L1380 86.0 L1400 86.5 L1420 87.6 L1440 89.2 L1460 91.2 L1480 93.5 L1500 96.0 L1520 98.5 L1540 100.8 L1560 102.8 L1580 104.4 L1600 105.5 L1620 106.0 L1640 105.8 L1660 105.0 L1680 103.7 L1700 101.9 L1720 99.7 L1740 97.3 L1760 94.7 L1780 92.3 L1800 90.1 L1820 88.3 L1840 87.0 L1860 86.2 L1880 86.0 L1900 86.5 L1920 87.6 L1940 89.2 L1960 91.2 L1980 93.5 L2000 96.0 L2000 160 L0 160 Z" fill="#818cf8" fill-opacity="0.16"/></g>
+<g class="wave" style="--d:15s"><path d="M0 108 L0 120.7 L20 118.8 L40 116.2 L60 113.2 L80 109.8 L100 106.2 L120 102.8 L140 99.8 L160 97.2 L180 95.3 L200 94.2 L220 94.0 L240 94.7 L260 96.2 L280 98.4 L300 101.3 L320 104.5 L340 108.0 L360 111.5 L380 114.7 L400 117.6 L420 119.8 L440 121.3 L460 122.0 L480 121.8 L500 120.7 L520 118.8 L540 116.2 L560 113.2 L580 109.8 L600 106.2 L620 102.8 L640 99.8 L660 97.2 L680 95.3 L700 94.2 L720 94.0 L740 94.7 L760 96.2 L780 98.4 L800 101.3 L820 104.5 L840 108.0 L860 111.5 L880 114.7 L900 117.6 L920 119.8 L940 121.3 L960 122.0 L980 121.8 L1000 120.7 L1020 118.8 L1040 116.2 L1060 113.2 L1080 109.8 L1100 106.2 L1120 102.8 L1140 99.8 L1160 97.2 L1180 95.3 L1200 94.2 L1220 94.0 L1240 94.7 L1260 96.2 L1280 98.4 L1300 101.3 L1320 104.5 L1340 108.0 L1360 111.5 L1380 114.7 L1400 117.6 L1420 119.8 L1440 121.3 L1460 122.0 L1480 121.8 L1500 120.7 L1520 118.8 L1540 116.2 L1560 113.2 L1580 109.8 L1600 106.2 L1620 102.8 L1640 99.8 L1660 97.2 L1680 95.3 L1700 94.2 L1720 94.0 L1740 94.7 L1760 96.2 L1780 98.4 L1800 101.3 L1820 104.5 L1840 108.0 L1860 111.5 L1880 114.7 L1900 117.6 L1920 119.8 L1940 121.3 L1960 122.0 L1980 121.8 L2000 120.7 L2000 160 L0 160 Z" fill="#f59e0b" fill-opacity="0.16"/></g>
+<g class="wave" style="--d:10s"><path d="M0 122 L0 111.9 L20 110.6 L40 110.0 L60 110.2 L80 111.1 L100 112.8 L120 114.9 L140 117.6 L160 120.5 L180 123.5 L200 126.4 L220 129.1 L240 131.2 L260 132.9 L280 133.8 L300 134.0 L320 133.4 L340 132.1 L360 130.2 L380 127.8 L400 125.0 L420 122.0 L440 119.0 L460 116.2 L480 113.8 L500 111.9 L520 110.6 L540 110.0 L560 110.2 L580 111.1 L600 112.8 L620 114.9 L640 117.6 L660 120.5 L680 123.5 L700 126.4 L720 129.1 L740 131.2 L760 132.9 L780 133.8 L800 134.0 L820 133.4 L840 132.1 L860 130.2 L880 127.8 L900 125.0 L920 122.0 L940 119.0 L960 116.2 L980 113.8 L1000 111.9 L1020 110.6 L1040 110.0 L1060 110.2 L1080 111.1 L1100 112.8 L1120 114.9 L1140 117.6 L1160 120.5 L1180 123.5 L1200 126.4 L1220 129.1 L1240 131.2 L1260 132.9 L1280 133.8 L1300 134.0 L1320 133.4 L1340 132.1 L1360 130.2 L1380 127.8 L1400 125.0 L1420 122.0 L1440 119.0 L1460 116.2 L1480 113.8 L1500 111.9 L1520 110.6 L1540 110.0 L1560 110.2 L1580 111.1 L1600 112.8 L1620 114.9 L1640 117.6 L1660 120.5 L1680 123.5 L1700 126.4 L1720 129.1 L1740 131.2 L1760 132.9 L1780 133.8 L1800 134.0 L1820 133.4 L1840 132.1 L1860 130.2 L1880 127.8 L1900 125.0 L1920 122.0 L1940 119.0 L1960 116.2 L1980 113.8 L2000 111.9 L2000 160 L0 160 Z" fill="#2dd4bf" fill-opacity="0.22"/></g>
+<text x="500" y="62" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">Thanks for stopping by</text>
+<text x="500" y="88" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#94a3b8">Building practical systems for Kenyan institutions</text>
+</svg>

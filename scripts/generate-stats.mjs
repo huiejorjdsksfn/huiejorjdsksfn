@@ -115,6 +115,34 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 const FONT = "'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
 const MONO = "'SFMono-Regular', Consolas, 'Liberation Mono', monospace";
 
+// All motion is CSS, and switched off for people who ask their system for reduced motion. Every
+// animation only describes where an element starts ("from"), so with motion off the card simply
+// shows its finished state.
+const STYLE = `
+.up{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.grow{transform-box:fill-box;transform-origin:left center;animation:grow 1.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.rise{transform-box:fill-box;transform-origin:center bottom;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:scaleY(0)}}
+.flt{transform-box:fill-box;transform-origin:center;animation:flt var(--d,6s) ease-in-out var(--t,0s) infinite}
+@keyframes flt{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(6px,-12px) rotate(2.5deg)}66%{transform:translate(-5px,-5px) rotate(-2deg)}}
+.drift{transform-box:fill-box;transform-origin:center;animation:drift var(--d,14s) ease-in-out var(--t,0s) infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-26px,14px) scale(1.06)}}
+.tw{animation:tw var(--d,4s) ease-in-out var(--t,0s) infinite}
+@keyframes tw{0%,100%{opacity:var(--b)}50%{opacity:calc(var(--b) + .45)}}
+.shim{animation:shim 5s ease-in-out var(--t,0s) infinite}
+@keyframes shim{0%,100%{opacity:1}50%{opacity:.45}}
+.bar{transform-box:fill-box;transform-origin:left center;animation:bar 5s ease-in-out infinite}
+@keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
+.sweep{animation:sweep 5s linear infinite}
+@keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.wave{animation:wave var(--d,12s) linear infinite}
+@keyframes wave{to{transform:translateX(-1000px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+`;
 const defs = `<defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111a33"/>
@@ -123,8 +151,9 @@ const defs = `<defs>
     <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
   </linearGradient>
 </defs>`;
-const card = (w, h, body, label) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">
+const card = (w, h, body, label, extraCss = "") => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">
 ${defs}
+<style>${STYLE}${extraCss}</style>
 <rect width="${w}" height="${h}" rx="16" fill="url(#bg)"/>
 <rect x="0.5" y="0.5" width="${w - 1}" height="${h - 1}" rx="15.5" fill="none" stroke="#27324d"/>
 ${body}
@@ -144,21 +173,42 @@ const write = (name, svg) => {
     for (let y = 0; y < 6; y++) {
       const base = 0.08 + ((x + y) % 5) * 0.045;
       const r = 1 + ((x * 7 + y * 3) % 3) * 0.6;
-      const twinkle =
-        (x * 5 + y * 3) % 4 === 0
-          ? `<animate attributeName="opacity" values="${base};${Math.min(0.75, base + 0.45).toFixed(2)};${base}" dur="${3 + ((x + y) % 4)}s" begin="${((x * 3 + y) % 7) * 0.4}s" repeatCount="indefinite"/>`
-          : "";
-      dots.push(`<circle cx="${700 + x * 20}" cy="${40 + y * 36}" r="${r}" fill="#2dd4bf" opacity="${base}">${twinkle}</circle>`);
+      const live = (x * 5 + y * 3) % 4 === 0;
+      dots.push(
+        `<circle cx="${700 + x * 20}" cy="${40 + y * 36}" r="${r}" fill="#2dd4bf" opacity="${base}"${live ? ` class="tw" style="--b:${base};--d:${3 + ((x + y) % 4)}s;--t:${(((x * 3 + y) % 7) * 0.4).toFixed(1)}s"` : ""}/>`,
+      );
     }
+  // Floating tech chips: each drifts on its own loop, so the group never moves in step.
+  const CHIPS = [
+    ["React", 800, 36, "#2dd4bf"],
+    ["TypeScript", 912, 78, "#f59e0b"],
+    ["Supabase", 1052, 34, "#2dd4bf"],
+    ["PostgreSQL", 836, 140, "#818cf8"],
+    ["M-Pesa", 1006, 124, "#f59e0b"],
+    [".NET", 1112, 92, "#818cf8"],
+    ["CI/CD", 802, 204, "#2dd4bf"],
+    ["RLS", 936, 196, "#f472b6"],
+    ["</>", 1060, 196, "#f59e0b"],
+    ["ERP", 1126, 168, "#2dd4bf"],
+  ];
+  const chips = CHIPS.map(([label, x, y, c], i) => {
+    const w = 26 + label.length * 8.4;
+    return `<g class="flt" style="--d:${(5 + (i * 7) % 5).toFixed(0)}s;--t:${(-i * 0.9).toFixed(1)}s">
+<rect x="${x}" y="${y}" width="${w}" height="30" rx="15" fill="#0f1830" fill-opacity="0.85" stroke="${c}" stroke-opacity="0.7"/>
+<text x="${x + w / 2}" y="${y + 20}" text-anchor="middle" font-family="${MONO}" font-size="14" font-weight="600" fill="${c}">${esc(label)}</text>
+</g>`;
+  }).join("\n");
   const body = `
 ${dots.join("\n")}
-<circle cx="1080" cy="130" r="190" fill="#2dd4bf" opacity="0.05"><animate attributeName="r" values="190;205;190" dur="7s" repeatCount="indefinite"/></circle>
-<circle cx="1140" cy="60" r="110" fill="#f59e0b" opacity="0.06"/>
-<rect x="64" y="52" width="72" height="5" rx="2.5" fill="url(#accent)"><animate attributeName="width" values="72;168;72" dur="5s" repeatCount="indefinite"/></rect>
-<text x="64" y="128" font-family="${FONT}" font-size="58" font-weight="700" fill="#f8fafc">${esc((u.name || LOGIN).replace(/^./, (c) => c.toUpperCase()))}</text>
-<text x="64" y="170" font-family="${FONT}" font-size="24" fill="#2dd4bf" font-weight="600">Full-stack developer · ERP systems for Kenyan institutions</text>
-<text x="64" y="206" font-family="${FONT}" font-size="17" fill="#94a3b8">ICT Support Technician · Othaya, Nyeri County, Kenya</text>
-<text x="64" y="232" font-family="${MONO}" font-size="14" fill="#64748b">React · TypeScript · Supabase · PostgreSQL · .NET · CI/CD</text>`;
+<circle class="drift" style="--d:16s" cx="1080" cy="130" r="190" fill="#2dd4bf" opacity="0.05"/>
+<circle class="drift" style="--d:11s;--t:-4s" cx="1140" cy="60" r="110" fill="#f59e0b" opacity="0.06"/>
+<circle class="drift" style="--d:19s;--t:-9s" cx="640" cy="250" r="90" fill="#818cf8" opacity="0.05"/>
+${chips}
+<rect class="bar" x="64" y="52" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+<text class="up" x="64" y="128" font-family="${FONT}" font-size="58" font-weight="700" fill="#f8fafc">${esc((u.name || LOGIN).replace(/^./, (c) => c.toUpperCase()))}</text>
+<text class="up" style="animation-delay:.25s" x="64" y="170" font-family="${FONT}" font-size="24" fill="#2dd4bf" font-weight="600">Full-stack developer · ERP systems for Kenyan institutions</text>
+<text class="up" style="animation-delay:.45s" x="64" y="206" font-family="${FONT}" font-size="17" fill="#94a3b8">ICT Support Technician · Othaya, Nyeri County, Kenya</text>
+<text class="up" style="animation-delay:.65s" x="64" y="232" font-family="${MONO}" font-size="14" fill="#64748b">React · TypeScript · Supabase · PostgreSQL · .NET · CI/CD</text>`;
   write("banner.svg", card(1200, 260, body, "Banner: full-stack developer building ERP systems for Kenyan institutions"));
 }
 
@@ -176,10 +226,10 @@ ${dots.join("\n")}
     .map(([big, label, sub], i) => {
       const x = 32 + (i % 3) * 316;
       const y = 76 + Math.floor(i / 3) * 112;
-      return `<rect x="${x}" y="${y}" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
+      return `<g class="up" style="animation-delay:${(0.15 + i * 0.12).toFixed(2)}s"><rect x="${x}" y="${y}" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="${x + 22}" y="${y + 46}" font-family="${FONT}" font-size="36" font-weight="700" fill="#f8fafc">${esc(big)}</text>
 <text x="${x + 22}" y="${y + 68}" font-family="${FONT}" font-size="15" font-weight="600" fill="#2dd4bf">${esc(label)}</text>
-<text x="${x + 22}" y="${y + 86}" font-family="${FONT}" font-size="12" fill="#94a3b8">${esc(sub)}</text>`;
+<text x="${x + 22}" y="${y + 86}" font-family="${FONT}" font-size="12" fill="#94a3b8">${esc(sub)}</text></g>`;
     })
     .join("\n");
   const body = `<text x="32" y="46" font-family="${FONT}" font-size="20" font-weight="700" fill="#f8fafc">Developer stats</text>
@@ -197,7 +247,7 @@ ${cells}`;
       const y = 78 + i * 36;
       return `<text x="32" y="${y + 13}" font-family="${FONT}" font-size="15" font-weight="600" fill="#e2e8f0">${esc(name)}</text>
 <rect x="190" y="${y}" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
-<rect x="190" y="${y}" width="${Math.max(10, 6.4 * pct)}" height="16" rx="8" fill="${COLORS[i]}"/>
+<rect class="grow" style="animation-delay:${(0.2 + i * 0.15).toFixed(2)}s" x="190" y="${y}" width="${Math.max(10, 6.4 * pct)}" height="16" rx="8" fill="${COLORS[i]}"/>
 <text x="968" y="${y + 13}" text-anchor="end" font-family="${MONO}" font-size="14" fill="#94a3b8">${pct.toFixed(1)}%</text>`;
     })
     .join("\n");
@@ -217,7 +267,7 @@ ${rows}`;
   weeks.forEach((w, wi) =>
     w.contributionDays.forEach((d, di) =>
       cells.push(
-        `<rect x="${X0 + wi * (S + G)}" y="${Y0 + di * (S + G)}" width="${S}" height="${S}" rx="3" fill="${SCALE[level(d.contributionCount)]}"><title>${esc(d.date)}: ${d.contributionCount}</title></rect>`,
+        `<rect${d.contributionCount > 0 ? ` class="shim" style="--t:${(wi * 0.09).toFixed(2)}s"` : ""} x="${X0 + wi * (S + G)}" y="${Y0 + di * (S + G)}" width="${S}" height="${S}" rx="3" fill="${SCALE[level(d.contributionCount)]}"><title>${esc(d.date)}: ${d.contributionCount}</title></rect>`,
       ),
     ),
   );
@@ -258,9 +308,9 @@ ${legend}
     .map(([big, unit, label], i) => {
       const x = 32 + (i % 2) * 252;
       const y = 76 + Math.floor(i / 2) * 76;
-      return `<rect x="${x}" y="${y}" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
+      return `<g class="up" style="animation-delay:${(0.1 + i * 0.12).toFixed(2)}s"><rect x="${x}" y="${y}" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="${x + 18}" y="${y + 30}" font-family="${FONT}"><tspan font-size="26" font-weight="700" fill="#f8fafc">${esc(big)}</tspan><tspan dx="8" font-size="13" fill="#94a3b8">${esc(unit)}</tspan></text>
-<text x="${x + 18}" y="${y + 50}" font-family="${FONT}" font-size="12" font-weight="600" fill="#2dd4bf">${esc(label)}</text>`;
+<text x="${x + 18}" y="${y + 50}" font-family="${FONT}" font-size="12" font-weight="600" fill="#2dd4bf">${esc(label)}</text></g>`;
     })
     .join("\n");
   const max = Math.max(...byWeekday, 1);
@@ -271,7 +321,7 @@ ${legend}
       const x = BX + i * (BW + GAP);
       const hot = i === busiestWeekday;
       return `<rect x="${x}" y="${BASE - MAXH}" width="${BW}" height="${MAXH}" rx="8" fill="#0f1830"/>
-<rect x="${x}" y="${BASE - h}" width="${BW}" height="${h}" rx="8" fill="${hot ? "#f59e0b" : "#14b8a6"}"><title>${WEEKDAYS[i]}: ${nf(v)}</title></rect>
+<rect class="rise" style="animation-delay:${(0.2 + i * 0.1).toFixed(2)}s" x="${x}" y="${BASE - h}" width="${BW}" height="${h}" rx="8" fill="${hot ? "#f59e0b" : "#14b8a6"}"><title>${WEEKDAYS[i]}: ${nf(v)}</title></rect>
 <text x="${x + BW / 2}" y="${BASE + 22}" text-anchor="middle" font-family="${FONT}" font-size="12" fill="${hot ? "#f59e0b" : "#94a3b8"}">${WEEKDAYS[i]}</text>`;
     })
     .join("\n");
@@ -290,18 +340,18 @@ for (const p of PROJECTS.projects) {
     .map((m, i) => {
       const x = 28 + (i % 2) * 218;
       const y = 92 + Math.floor(i / 2) * 64;
-      return `<rect x="${x}" y="${y}" width="206" height="54" rx="10" fill="#0f1830" stroke="#27324d"/>
+      return `<g class="up" style="animation-delay:${(0.1 + i * 0.12).toFixed(2)}s"><rect x="${x}" y="${y}" width="206" height="54" rx="10" fill="#0f1830" stroke="#27324d"/>
 <text x="${x + 16}" y="${y + 28}" font-family="${FONT}" font-size="22" font-weight="700" fill="#f8fafc">${esc(m.value)}</text>
-<text x="${x + 16}" y="${y + 44}" font-family="${FONT}" font-size="11.5" fill="#94a3b8">${esc(m.label)}</text>`;
+<text x="${x + 16}" y="${y + 44}" font-family="${FONT}" font-size="11.5" fill="#94a3b8">${esc(m.label)}</text></g>`;
     })
     .join("\n");
   let cx = 28;
   const chips = p.chips
-    .map((c) => {
+    .map((c, ci) => {
       const w = 22 + c.length * 7.2;
       if (cx + w > 452) return ""; // never draw a chip that would run off the card
-      const out = `<rect x="${cx}" y="236" width="${w}" height="24" rx="12" fill="#0f1830" stroke="#2dd4bf" stroke-opacity="0.5"/>
-<text x="${cx + w / 2}" y="252" text-anchor="middle" font-family="${FONT}" font-size="11.5" font-weight="600" fill="#5eead4">${esc(c)}</text>`;
+      const out = `<g class="flt" style="--d:${4 + (ci % 3)}s;--t:${-ci * 0.7}s"><rect x="${cx}" y="236" width="${w}" height="24" rx="12" fill="#0f1830" stroke="#2dd4bf" stroke-opacity="0.5"/>
+<text x="${cx + w / 2}" y="252" text-anchor="middle" font-family="${FONT}" font-size="11.5" font-weight="600" fill="#5eead4">${esc(c)}</text></g>`;
       cx += w + 8;
       return out;
     })
@@ -321,11 +371,80 @@ ${chips}`;
 write(
   "divider.svg",
   `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="12" viewBox="0 0 1000 12" role="presentation">
-<defs><linearGradient id="d" x1="0" y1="0" x2="1" y2="0">
+<defs>
+<linearGradient id="d" x1="0" y1="0" x2="1" y2="0">
 <stop offset="0" stop-color="#2dd4bf" stop-opacity="0"/><stop offset="0.3" stop-color="#2dd4bf"/>
 <stop offset="0.7" stop-color="#f59e0b"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
-</linearGradient></defs>
+</linearGradient>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0.95"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<style>${STYLE}</style>
 <rect x="0" y="5" width="1000" height="2" rx="1" fill="url(#d)"/>
+<rect class="sweep" x="0" y="4" width="160" height="4" rx="2" fill="url(#g)"/>
 </svg>
 `,
 );
+
+// ---- typing terminal ----------------------------------------------------------------------------
+{
+  const T = 18; // seconds per loop
+  const X = 64, Y0 = 104, LH = 28, CW = 9.4;
+  const lines = [
+    { k: "cmd", t: "whoami", s: 0.6, d: 0.8 },
+    { k: "out", t: "isaac_njoroge — full-stack developer · Kenya", s: 1.8, d: 1.2, c: "#e2e8f0" },
+    { k: "cmd", t: "ls systems/", s: 3.6, d: 0.9 },
+    { k: "out", t: "kanyange-connect/    medi-procure-hub/", s: 4.9, d: 1.1, c: "#5eead4" },
+    { k: "cmd", t: "cat stack.txt", s: 6.6, d: 1.0 },
+    { k: "out", t: "react · typescript · supabase · postgres · .NET · ci/cd", s: 7.9, d: 1.5, c: "#94a3b8" },
+    { k: "cmd", t: "", s: 9.8, d: 0.2 },
+  ];
+  let css = `.cov{transform-box:fill-box;transform-origin:right center;transform:scaleX(0)}
+.cyc{animation:cyc ${T}s linear infinite}
+@keyframes cyc{0%,92%{opacity:1}96%,99.9%{opacity:0}100%{opacity:1}}`;
+  const rows = lines
+    .map((l, i) => {
+      const y = Y0 + i * LH;
+      const chars = (l.k === "cmd" ? 2 : 0) + l.t.length;
+      const a = ((l.s / T) * 100).toFixed(2);
+      const b = (((l.s + l.d) / T) * 100).toFixed(2);
+      css += `\n@keyframes ty${i}{0%,${a}%{transform:scaleX(1)}${b}%,100%{transform:scaleX(0)}}.ty${i}{animation:ty${i} ${T}s steps(${Math.max(1, chars)}) infinite}`;
+      const text =
+        l.k === "cmd"
+          ? `<text x="${X}" y="${y}" font-family="${MONO}" font-size="15"><tspan fill="#f59e0b">$ </tspan><tspan fill="#f8fafc">${esc(l.t)}</tspan></text>`
+          : `<text x="${X}" y="${y}" font-family="${MONO}" font-size="15" fill="${l.c}">${esc(l.t)}</text>`;
+      const cursor =
+        i === lines.length - 1
+          ? `<rect class="blink" x="${X + 2 * CW}" y="${y - 13}" width="9" height="17" fill="#2dd4bf"/>`
+          : "";
+      const w = (chars + 2) * CW + 12;
+      return `${text}${cursor}<rect class="cov ty${i}" x="${X - 6}" y="${y - 18}" width="${w}" height="26" fill="#0a0f1c"/>`;
+    })
+    .join("\n");
+  const H = Y0 + lines.length * LH + 20;
+  const body = `<rect x="32" y="24" width="936" height="${H - 44}" rx="12" fill="#0a0f1c" stroke="#27324d"/>
+<path d="M32 36a12 12 0 0 1 12-12h912a12 12 0 0 1 12 12v22H32z" fill="#111a33"/>
+<circle cx="58" cy="41" r="6" fill="#f87171"/><circle cx="80" cy="41" r="6" fill="#fbbf24"/><circle cx="102" cy="41" r="6" fill="#34d399"/>
+<text x="500" y="46" text-anchor="middle" font-family="${MONO}" font-size="13" fill="#64748b">isaac@kenya: ~/systems</text>
+<g class="cyc">
+${rows}
+</g>`;
+  write("terminal.svg", card(1000, H, body, "Animated terminal: whoami, systems built and tech stack", css));
+}
+
+// ---- animated wave footer -----------------------------------------------------------------------
+{
+  const wave = (amp, phase, base) => {
+    // 2000 wide with a 500 period, so sliding it 1000 to the left loops without a seam
+    let d = `M0 ${base}`;
+    for (let x = 0; x <= 2000; x += 20) d += ` L${x} ${(base + amp * Math.sin(((x + phase) / 500) * 2 * Math.PI)).toFixed(1)}`;
+    return d + " L2000 160 L0 160 Z";
+  };
+  const body = `<g class="wave" style="--d:22s"><path d="${wave(10, 0, 96)}" fill="#818cf8" fill-opacity="0.16"/></g>
+<g class="wave" style="--d:15s"><path d="${wave(14, 160, 108)}" fill="#f59e0b" fill-opacity="0.16"/></g>
+<g class="wave" style="--d:10s"><path d="${wave(12, 330, 122)}" fill="#2dd4bf" fill-opacity="0.22"/></g>
+<text x="500" y="62" text-anchor="middle" font-family="${FONT}" font-size="22" font-weight="700" fill="#f8fafc">Thanks for stopping by</text>
+<text x="500" y="88" text-anchor="middle" font-family="${FONT}" font-size="14" fill="#94a3b8">Building practical systems for Kenyan institutions</text>`;
+  write("footer.svg", card(1000, 160, body, "Animated footer: thanks for stopping by"));
+}

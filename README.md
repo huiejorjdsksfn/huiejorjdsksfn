@@ -13,6 +13,10 @@
 ![.NET](https://img.shields.io/badge/.NET_WPF-0b1220?style=for-the-badge&logo=dotnet&logoColor=a78bfa)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0b1220?style=for-the-badge&logo=githubactions&logoColor=2088FF)
 
+<br/>
+
+<img src="assets/terminal.svg" alt="Animated terminal: whoami, systems I have built and my stack" width="100%"/>
+
 </div>
 
 ## 👋 About
@@ -139,5 +143,8 @@ Cinematic sites built around motion and storytelling: a 25th-birthday site and a
 <br/>
 
 <div align="center">
+
+<img src="assets/footer.svg" alt="Thanks for stopping by" width="100%"/>
+
 <sub>Cards are drawn from my GitHub data by <a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a> · project figures live in <a href="data/projects.json"><code>data/projects.json</code></a>.</sub>
 </div>

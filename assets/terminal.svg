@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" role="img" aria-label="Animated terminal: whoami, systems built and tech stack">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111a33"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
+  </linearGradient>
+</defs>
+<style>
+.up{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.grow{transform-box:fill-box;transform-origin:left center;animation:grow 1.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.rise{transform-box:fill-box;transform-origin:center bottom;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:scaleY(0)}}
+.flt{transform-box:fill-box;transform-origin:center;animation:flt var(--d,6s) ease-in-out var(--t,0s) infinite}
+@keyframes flt{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(6px,-12px) rotate(2.5deg)}66%{transform:translate(-5px,-5px) rotate(-2deg)}}
+.drift{transform-box:fill-box;transform-origin:center;animation:drift var(--d,14s) ease-in-out var(--t,0s) infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-26px,14px) scale(1.06)}}
+.tw{animation:tw var(--d,4s) ease-in-out var(--t,0s) infinite}
+@keyframes tw{0%,100%{opacity:var(--b)}50%{opacity:calc(var(--b) + .45)}}
+.shim{animation:shim 5s ease-in-out var(--t,0s) infinite}
+@keyframes shim{0%,100%{opacity:1}50%{opacity:.45}}
+.bar{transform-box:fill-box;transform-origin:left center;animation:bar 5s ease-in-out infinite}
+@keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
+.sweep{animation:sweep 5s linear infinite}
+@keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.wave{animation:wave var(--d,12s) linear infinite}
+@keyframes wave{to{transform:translateX(-1000px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+.cov{transform-box:fill-box;transform-origin:right center;transform:scaleX(0)}
+.cyc{animation:cyc 18s linear infinite}
+@keyframes cyc{0%,92%{opacity:1}96%,99.9%{opacity:0}100%{opacity:1}}
+@keyframes ty0{0%,3.33%{transform:scaleX(1)}7.78%,100%{transform:scaleX(0)}}.ty0{animation:ty0 18s steps(8) infinite}
+@keyframes ty1{0%,10.00%{transform:scaleX(1)}16.67%,100%{transform:scaleX(0)}}.ty1{animation:ty1 18s steps(44) infinite}
+@keyframes ty2{0%,20.00%{transform:scaleX(1)}25.00%,100%{transform:scaleX(0)}}.ty2{animation:ty2 18s steps(13) infinite}
+@keyframes ty3{0%,27.22%{transform:scaleX(1)}33.33%,100%{transform:scaleX(0)}}.ty3{animation:ty3 18s steps(38) infinite}
+@keyframes ty4{0%,36.67%{transform:scaleX(1)}42.22%,100%{transform:scaleX(0)}}.ty4{animation:ty4 18s steps(15) infinite}
+@keyframes ty5{0%,43.89%{transform:scaleX(1)}52.22%,100%{transform:scaleX(0)}}.ty5{animation:ty5 18s steps(55) infinite}
+@keyframes ty6{0%,54.44%{transform:scaleX(1)}55.56%,100%{transform:scaleX(0)}}.ty6{animation:ty6 18s steps(2) infinite}</style>
+<rect width="1000" height="320" rx="16" fill="url(#bg)"/>
+<rect x="0.5" y="0.5" width="999" height="319" rx="15.5" fill="none" stroke="#27324d"/>
+<rect x="32" y="24" width="936" height="276" rx="12" fill="#0a0f1c" stroke="#27324d"/>
+<path d="M32 36a12 12 0 0 1 12-12h912a12 12 0 0 1 12 12v22H32z" fill="#111a33"/>
+<circle cx="58" cy="41" r="6" fill="#f87171"/><circle cx="80" cy="41" r="6" fill="#fbbf24"/><circle cx="102" cy="41" r="6" fill="#34d399"/>
+<text x="500" y="46" text-anchor="middle" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="13" fill="#64748b">isaac@kenya: ~/systems</text>
+<g class="cyc">
+<text x="64" y="104" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15"><tspan fill="#f59e0b">$ </tspan><tspan fill="#f8fafc">whoami</tspan></text><rect class="cov ty0" x="58" y="86" width="106" height="26" fill="#0a0f1c"/>
+<text x="64" y="132" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15" fill="#e2e8f0">isaac_njoroge — full-stack developer · Kenya</text><rect class="cov ty1" x="58" y="114" width="444.40000000000003" height="26" fill="#0a0f1c"/>
+<text x="64" y="160" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15"><tspan fill="#f59e0b">$ </tspan><tspan fill="#f8fafc">ls systems/</tspan></text><rect class="cov ty2" x="58" y="142" width="153" height="26" fill="#0a0f1c"/>
+<text x="64" y="188" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15" fill="#5eead4">kanyange-connect/    medi-procure-hub/</text><rect class="cov ty3" x="58" y="170" width="388" height="26" fill="#0a0f1c"/>
+<text x="64" y="216" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15"><tspan fill="#f59e0b">$ </tspan><tspan fill="#f8fafc">cat stack.txt</tspan></text><rect class="cov ty4" x="58" y="198" width="171.8" height="26" fill="#0a0f1c"/>
+<text x="64" y="244" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15" fill="#94a3b8">react · typescript · supabase · postgres · .NET · ci/cd</text><rect class="cov ty5" x="58" y="226" width="547.8000000000001" height="26" fill="#0a0f1c"/>
+<text x="64" y="272" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="15"><tspan fill="#f59e0b">$ </tspan><tspan fill="#f8fafc"></tspan></text><rect class="blink" x="82.8" y="259" width="9" height="17" fill="#2dd4bf"/><rect class="cov ty6" x="58" y="254" width="49.6" height="26" fill="#0a0f1c"/>
+</g>
+</svg>

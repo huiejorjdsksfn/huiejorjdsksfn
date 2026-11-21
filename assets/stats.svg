@@ -7,32 +7,57 @@
     <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
   </linearGradient>
 </defs>
+<style>
+.up{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.grow{transform-box:fill-box;transform-origin:left center;animation:grow 1.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.rise{transform-box:fill-box;transform-origin:center bottom;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:scaleY(0)}}
+.flt{transform-box:fill-box;transform-origin:center;animation:flt var(--d,6s) ease-in-out var(--t,0s) infinite}
+@keyframes flt{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(6px,-12px) rotate(2.5deg)}66%{transform:translate(-5px,-5px) rotate(-2deg)}}
+.drift{transform-box:fill-box;transform-origin:center;animation:drift var(--d,14s) ease-in-out var(--t,0s) infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-26px,14px) scale(1.06)}}
+.tw{animation:tw var(--d,4s) ease-in-out var(--t,0s) infinite}
+@keyframes tw{0%,100%{opacity:var(--b)}50%{opacity:calc(var(--b) + .45)}}
+.shim{animation:shim 5s ease-in-out var(--t,0s) infinite}
+@keyframes shim{0%,100%{opacity:1}50%{opacity:.45}}
+.bar{transform-box:fill-box;transform-origin:left center;animation:bar 5s ease-in-out infinite}
+@keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
+.sweep{animation:sweep 5s linear infinite}
+@keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.wave{animation:wave var(--d,12s) linear infinite}
+@keyframes wave{to{transform:translateX(-1000px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
 <rect width="1000" height="308" rx="16" fill="url(#bg)"/>
 <rect x="0.5" y="0.5" width="999" height="307" rx="15.5" fill="none" stroke="#27324d"/>
 <text x="32" y="46" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Developer stats</text>
 <text x="968" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">on GitHub since 2025</text>
-<rect x="32" y="76" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
+<g class="up" style="animation-delay:0.15s"><rect x="32" y="76" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="54" y="122" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">1,240</text>
 <text x="54" y="144" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">contributions</text>
-<text x="54" y="162" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">last 12 months</text>
-<rect x="348" y="76" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
+<text x="54" y="162" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">last 12 months</text></g>
+<g class="up" style="animation-delay:0.27s"><rect x="348" y="76" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="370" y="122" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">1,166</text>
 <text x="370" y="144" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">commits</text>
-<text x="370" y="162" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">last 12 months</text>
-<rect x="664" y="76" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
+<text x="370" y="162" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">last 12 months</text></g>
+<g class="up" style="animation-delay:0.39s"><rect x="664" y="76" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="686" y="122" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">41</text>
 <text x="686" y="144" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">pull requests</text>
-<text x="686" y="162" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">last 12 months</text>
-<rect x="32" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
+<text x="686" y="162" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">last 12 months</text></g>
+<g class="up" style="animation-delay:0.51s"><rect x="32" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="54" y="234" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">56</text>
 <text x="54" y="256" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">repositories</text>
-<text x="54" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">47 private · 9 public</text>
-<rect x="348" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
+<text x="54" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">47 private · 9 public</text></g>
+<g class="up" style="animation-delay:0.63s"><rect x="348" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="370" y="234" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">104</text>
 <text x="370" y="256" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">active days</text>
-<text x="370" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">of the last 371</text>
-<rect x="664" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
+<text x="370" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">of the last 371</text></g>
+<g class="up" style="animation-delay:0.75s"><rect x="664" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="686" y="234" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">65</text>
 <text x="686" y="256" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">busiest day</text>
-<text x="686" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">2026-05-14</text>
+<text x="686" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">2026-05-14</text></g>
 </svg>
