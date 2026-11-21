@@ -1,0 +1,72 @@
+{
+  "asOf": "2026-11-21",
+  "note": "Static figures are counted from the code on the date above. Commit counts are read live from GitHub.",
+  "projects": [
+    {
+      "id": "kanyange-connect",
+      "repo": "kanyange-connect",
+      "file": "project-kanyange.svg",
+      "title": "Kanyange Connect",
+      "subtitle": "Church management ERP \u00b7 ACK St. James Kanyange Parish",
+      "visibility": "Private",
+      "metrics": [
+        {
+          "value": "~220k",
+          "label": "lines of TypeScript"
+        },
+        {
+          "value": "175",
+          "label": "routes and pages"
+        },
+        {
+          "value": "17",
+          "label": "staff roles"
+        },
+        {
+          "value": "220+",
+          "label": "database migrations"
+        }
+      ],
+      "chips": [
+        "React",
+        "TanStack",
+        "Supabase",
+        "PostgreSQL",
+        ".NET WPF"
+      ]
+    },
+    {
+      "id": "medi-procure-hub",
+      "repo": "medi-procure-hub",
+      "file": "project-mediprocure.svg",
+      "title": "MediProcure Hub",
+      "subtitle": "Hospital procurement ERP \u00b7 requisition to payment",
+      "visibility": "Public",
+      "metrics": [
+        {
+          "value": "9",
+          "label": "permission roles"
+        },
+        {
+          "value": "3",
+          "label": "CI guard checks"
+        },
+        {
+          "value": "2",
+          "label": "Windows builds (x64, ia32)"
+        },
+        {
+          "value": "3-way",
+          "label": "invoice matching"
+        }
+      ],
+      "chips": [
+        "React",
+        "TypeScript",
+        "Supabase",
+        "Electron",
+        "CI/CD"
+      ]
+    }
+  ]
+}

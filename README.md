@@ -28,6 +28,8 @@ feature off when something goes wrong.
 
 📍 Othaya, Nyeri County, Kenya
 
+🔭 **Currently:** building and extending **Kanyange Connect**: the ERP itself, its Windows apps and its operations tooling.
+
 <br/>
 
 <div align="center">
@@ -38,9 +40,30 @@ feature off when something goes wrong.
 
 <img src="assets/activity.svg" alt="Contribution activity over the last year" width="100%"/>
 
+<br/>
+
+<img src="assets/consistency.svg" alt="Streaks and weekly rhythm" width="100%"/>
+
 </div>
 
+<div align="center"><img src="assets/divider.svg" alt="" width="100%"/></div>
+
 ## 🏗️ Systems I've built
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+<img src="assets/project-kanyange.svg" alt="Kanyange Connect: church management ERP" width="100%"/>
+
+</td>
+<td width="50%" valign="top">
+
+<a href="https://github.com/huiejorjdsksfn/medi-procure-hub"><img src="assets/project-mediprocure.svg" alt="MediProcure Hub: hospital procurement ERP" width="100%"/></a>
+
+</td>
+</tr>
+</table>
 
 ### ⛪ Kanyange Connect — church management ERP for ACK St. James Kanyange Parish
 
@@ -72,6 +95,8 @@ Cinematic sites built around motion and storytelling: a 25th-birthday site and a
 
 <br/>
 
+<div align="center"><img src="assets/divider.svg" alt="" width="100%"/></div>
+
 ## 🧰 What I can do
 
 | Area | Hands-on experience |
@@ -91,6 +116,18 @@ Cinematic sites built around motion and storytelling: a 25th-birthday site and a
 
 </div>
 
+<div align="center"><img src="assets/divider.svg" alt="" width="100%"/></div>
+
+## 💬 Ask me about
+
+- Designing **permissions and roles** for an institution, and enforcing them with Postgres row-level security
+- Taking **M-Pesa and Equity Jenga** payments from callback to ledger
+- Church and hospital workflows: giving, treasury, procurement, registers and certificates
+- Turning a web system into a **Windows desktop suite** with installers and CI releases
+- Making a system **safe to operate**: audit trails, off switches, health checks and background jobs
+
+<div align="center"><img src="assets/divider.svg" alt="" width="100%"/></div>
+
 ## ⚙️ How I work
 
 - **Make it safe to operate.** Every important feature gets an off switch, a log, and a clear failure message.
@@ -102,5 +139,5 @@ Cinematic sites built around motion and storytelling: a 25th-birthday site and a
 <br/>
 
 <div align="center">
-<sub>Cards are drawn from my GitHub data by <a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a>.</sub>
+<sub>Cards are drawn from my GitHub data by <a href="scripts/generate-stats.mjs"><code>scripts/generate-stats.mjs</code></a> · project figures live in <a href="data/projects.json"><code>data/projects.json</code></a>.</sub>
 </div>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="276" viewBox="0 0 480 276" role="img" aria-label="Kanyange Connect: Church management ERP · ACK St. James Kanyange Parish">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111a33"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
+  </linearGradient>
+</defs>
+<rect width="480" height="276" rx="16" fill="url(#bg)"/>
+<rect x="0.5" y="0.5" width="479" height="275" rx="15.5" fill="none" stroke="#27324d"/>
+<rect x="0" y="22" width="5" height="232" rx="2.5" fill="url(#accent)"/>
+<text x="28" y="44" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">Kanyange Connect</text>
+<text x="28" y="68" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">Church management ERP · ACK St. James Kanyange Parish</text>
+<rect x="386" y="26" width="78" height="22" rx="11" fill="#1e293b"/>
+<text x="425" y="41" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#e2e8f0">Private</text>
+<rect x="28" y="92" width="206" height="54" rx="10" fill="#0f1830" stroke="#27324d"/>
+<text x="44" y="120" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">1,181</text>
+<text x="44" y="136" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#94a3b8">commits</text>
+<rect x="246" y="92" width="206" height="54" rx="10" fill="#0f1830" stroke="#27324d"/>
+<text x="262" y="120" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">~220k</text>
+<text x="262" y="136" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#94a3b8">lines of TypeScript</text>
+<rect x="28" y="156" width="206" height="54" rx="10" fill="#0f1830" stroke="#27324d"/>
+<text x="44" y="184" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">175</text>
+<text x="44" y="200" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#94a3b8">routes and pages</text>
+<rect x="246" y="156" width="206" height="54" rx="10" fill="#0f1830" stroke="#27324d"/>
+<text x="262" y="184" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">17</text>
+<text x="262" y="200" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#94a3b8">staff roles</text>
+<rect x="28" y="236" width="58" height="24" rx="12" fill="#0f1830" stroke="#2dd4bf" stroke-opacity="0.5"/>
+<text x="57" y="252" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5eead4">React</text>
+<rect x="94" y="236" width="79.6" height="24" rx="12" fill="#0f1830" stroke="#2dd4bf" stroke-opacity="0.5"/>
+<text x="133.8" y="252" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5eead4">TanStack</text>
+<rect x="181.6" y="236" width="79.6" height="24" rx="12" fill="#0f1830" stroke="#2dd4bf" stroke-opacity="0.5"/>
+<text x="221.39999999999998" y="252" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5eead4">Supabase</text>
+<rect x="269.2" y="236" width="94" height="24" rx="12" fill="#0f1830" stroke="#2dd4bf" stroke-opacity="0.5"/>
+<text x="316.2" y="252" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5eead4">PostgreSQL</text>
+<rect x="371.2" y="236" width="79.6" height="24" rx="12" fill="#0f1830" stroke="#2dd4bf" stroke-opacity="0.5"/>
+<text x="411" y="252" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5eead4">.NET WPF</text>
+</svg>

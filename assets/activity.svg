@@ -10,7 +10,7 @@
 <rect width="909" height="240" rx="16" fill="url(#bg)"/>
 <rect x="0.5" y="0.5" width="908" height="239" rx="15.5" fill="none" stroke="#27324d"/>
 <text x="32" y="46" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Activity</text>
-<text x="877" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">1,238 contributions in the last year</text>
+<text x="877" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">1,240 contributions in the last year</text>
 <text x="32" y="72" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Nov</text>
 <text x="80" y="72" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Dec</text>
 <text x="144" y="72" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Jan</text>
@@ -394,7 +394,7 @@
 <rect x="864" y="132" width="13" height="13" rx="3" fill="#131c33"><title>2026-11-18: 0</title></rect>
 <rect x="864" y="148" width="13" height="13" rx="3" fill="#131c33"><title>2026-11-19: 0</title></rect>
 <rect x="864" y="164" width="13" height="13" rx="3" fill="#14b8a6"><title>2026-11-20: 4</title></rect>
-<rect x="864" y="180" width="13" height="13" rx="3" fill="#0f766e"><title>2026-11-21: 3</title></rect>
+<rect x="864" y="180" width="13" height="13" rx="3" fill="#14b8a6"><title>2026-11-21: 5</title></rect>
 <text x="748" y="219" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Less</text>
 <rect x="756" y="208" width="13" height="13" rx="3" fill="#131c33"/><rect x="773" y="208" width="13" height="13" rx="3" fill="#0f766e"/><rect x="790" y="208" width="13" height="13" rx="3" fill="#14b8a6"/><rect x="807" y="208" width="13" height="13" rx="3" fill="#5eead4"/><rect x="824" y="208" width="13" height="13" rx="3" fill="#f59e0b"/>
 <text x="877" y="219" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">More</text>
