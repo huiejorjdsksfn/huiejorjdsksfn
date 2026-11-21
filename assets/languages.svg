@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="316" viewBox="0 0 1000 316" role="img" aria-label="Language breakdown">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111a33"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
+  </linearGradient>
+</defs>
+<rect width="1000" height="316" rx="16" fill="url(#bg)"/>
+<rect x="0.5" y="0.5" width="999" height="315" rx="15.5" fill="none" stroke="#27324d"/>
+<text x="32" y="46" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Languages</text>
+<text x="968" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">share of code across 56 repositories, as counted by GitHub</text>
+<text x="32" y="91" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">TypeScript</text>
+<rect x="190" y="78" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
+<rect x="190" y="78" width="356.6162062417731" height="16" rx="8" fill="#2dd4bf"/>
+<text x="968" y="91" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">55.7%</text>
+<text x="32" y="127" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">HTML</text>
+<rect x="190" y="114" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
+<rect x="190" y="114" width="234.29153705638265" height="16" rx="8" fill="#f59e0b"/>
+<text x="968" y="127" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">36.6%</text>
+<text x="32" y="163" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">PLpgSQL</text>
+<rect x="190" y="150" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
+<rect x="190" y="150" width="26.29780468519402" height="16" rx="8" fill="#818cf8"/>
+<text x="968" y="163" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">4.1%</text>
+<text x="32" y="199" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">JavaScript</text>
+<rect x="190" y="186" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
+<rect x="190" y="186" width="10" height="16" rx="8" fill="#f472b6"/>
+<text x="968" y="199" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">1.0%</text>
+<text x="32" y="235" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">CSS</text>
+<rect x="190" y="222" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
+<rect x="190" y="222" width="10" height="16" rx="8" fill="#38bdf8"/>
+<text x="968" y="235" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">1.0%</text>
+<text x="32" y="271" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">C#</text>
+<rect x="190" y="258" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
+<rect x="190" y="258" width="10" height="16" rx="8" fill="#a3e635"/>
+<text x="968" y="271" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">0.9%</text>
+</svg>
