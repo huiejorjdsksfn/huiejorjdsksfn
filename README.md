@@ -42,6 +42,10 @@ feature off when something goes wrong.
 
 <br/>
 
+<img src="assets/rank.svg" alt="Activity rank, recalculated daily" width="100%"/>
+
+<br/>
+
 <img src="assets/activity.svg" alt="Contribution activity over the last year" width="100%"/>
 
 <br/>

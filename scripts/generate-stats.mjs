@@ -9,7 +9,7 @@
  * repository name, description or code ever appears in the output.
  * Nothing is written unless every request succeeded, so a failed run cannot blank the cards.
  */
-import { mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -44,7 +44,7 @@ const gql = await graphql(`query { user(login: "${LOGIN}") {
   name createdAt
   repositories(ownerAffiliations: OWNER, isFork: false) { totalCount }
   contributionsCollection {
-    totalCommitContributions totalPullRequestContributions
+    totalCommitContributions totalPullRequestContributions totalIssueContributions totalPullRequestReviewContributions
     contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } }
   }
 }}`);
@@ -109,6 +109,41 @@ const bestMonthKey = Object.keys(byMonth).reduce((a, b) => (byMonth[b] > byMonth
 const bestMonth = new Date(bestMonthKey + "-01T00:00:00Z").toLocaleString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 const busiestWeekday = byWeekday.indexOf(Math.max(...byWeekday));
 
+
+// ---- activity rank --------------------------------------------------------------------------------
+// A weighted score of what a developer actually does on GitHub over the last 12 months, set against
+// fixed reference medians (the shape used by the well-known github-readme-stats rank). Stars and
+// followers are deliberately left out: most of this work is private institutional software, which
+// earns neither. Each measure saturates (it can only approach 1), so no single number dominates.
+const expCdf = (x) => 1 - Math.pow(2, -x);
+const RANK_INPUTS = [
+  { key: "commits", label: "commits", value: cc.totalCommitContributions, median: 250, weight: 2 },
+  { key: "prs", label: "pull requests", value: cc.totalPullRequestContributions, median: 50, weight: 3 },
+  { key: "issues", label: "issues", value: cc.totalIssueContributions, median: 25, weight: 1 },
+  { key: "reviews", label: "reviews", value: cc.totalPullRequestReviewContributions, median: 2, weight: 1 },
+];
+const weightSum = RANK_INPUTS.reduce((a, r) => a + r.weight, 0);
+const rankScore = RANK_INPUTS.reduce((a, r) => a + r.weight * expCdf(r.value / r.median), 0) / weightSum; // 0..1, higher is better
+const percentile = (1 - rankScore) * 100; // "top X%": lower is better
+const LEVELS = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C"];
+const THRESHOLDS = [1, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100];
+const rankLevel = LEVELS[THRESHOLDS.findIndex((t) => percentile <= t)];
+
+// One entry per UTC day. Running twice in a day just refreshes that day's entry.
+const HISTORY_FILE = join(dirname(fileURLToPath(import.meta.url)), "..", "data", "history.json");
+let history = existsSync(HISTORY_FILE) ? JSON.parse(readFileSync(HISTORY_FILE, "utf8")) : [];
+const today = new Date().toISOString().slice(0, 10);
+const entry = {
+  date: today,
+  level: rankLevel,
+  percentile: Math.round(percentile * 10) / 10,
+  score: Math.round(rankScore * 1000) / 10,
+  commits: cc.totalCommitContributions,
+  prs: cc.totalPullRequestContributions,
+  contributions: cc.contributionCalendar.totalContributions,
+};
+history = history.filter((h) => h.date !== today).concat(entry).sort((a, b) => a.date.localeCompare(b.date)).slice(-400);
+
 const since = new Date(u.createdAt).getUTCFullYear();
 const nf = (n) => n.toLocaleString("en-US");
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -137,6 +172,8 @@ const STYLE = `
 @keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
 .sweep{animation:sweep 5s linear infinite}
 @keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.ring{animation:ring 1.7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ring{from{stroke-dashoffset:var(--len)}}
 .blink{animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .wave{animation:wave var(--d,12s) linear infinite}
@@ -447,4 +484,55 @@ ${rows}
 <text x="500" y="62" text-anchor="middle" font-family="${FONT}" font-size="22" font-weight="700" fill="#f8fafc">Thanks for stopping by</text>
 <text x="500" y="88" text-anchor="middle" font-family="${FONT}" font-size="14" fill="#94a3b8">Building practical systems for Kenyan institutions</text>`;
   write("footer.svg", card(1000, 160, body, "Animated footer: thanks for stopping by"));
+}
+
+// ---- rank card + daily history ------------------------------------------------------------------
+{
+  const R = 58, LEN = 2 * Math.PI * R;
+  const ringOffset = LEN * (1 - rankScore);
+  const trend = history.slice(-30);
+  const CX = 520, CW = 448, CY = 74, CH = 100;
+  let chart;
+  if (trend.length < 2) {
+    chart = `<line x1="${CX}" y1="${CY + CH}" x2="${CX + CW}" y2="${CY + CH}" stroke="#27324d" stroke-dasharray="4 6"/>
+<text x="${CX + CW / 2}" y="${CY + CH / 2 + 4}" text-anchor="middle" font-family="${FONT}" font-size="14" fill="#94a3b8">Tracking started ${esc(trend[0]?.date ?? today)}. The trend builds up one point a day.</text>`;
+  } else {
+    const lo = Math.min(...trend.map((t) => t.score)), hi = Math.max(...trend.map((t) => t.score));
+    const pad = Math.max(1, (hi - lo) * 0.25);
+    const y = (v) => CY + CH - ((v - (lo - pad)) / (hi - lo + 2 * pad)) * CH;
+    const x = (i) => CX + (i / (trend.length - 1)) * CW;
+    const pts = trend.map((t, i) => `${x(i).toFixed(1)},${y(t.score).toFixed(1)}`);
+    const last = trend[trend.length - 1];
+    chart = `<defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.35"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></linearGradient></defs>
+<polygon points="${CX},${CY + CH} ${pts.join(" ")} ${CX + CW},${CY + CH}" fill="url(#fill)"/>
+<polyline points="${pts.join(" ")}" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="${x(trend.length - 1)}" cy="${y(last.score).toFixed(1)}" r="5" fill="#f59e0b"/>
+<text x="${CX}" y="${CY + CH + 22}" font-family="${FONT}" font-size="12" fill="#94a3b8">${esc(trend[0].date)}</text>
+<text x="${CX + CW}" y="${CY + CH + 22}" text-anchor="end" font-family="${FONT}" font-size="12" fill="#94a3b8">${esc(last.date)}</text>`;
+  }
+  const inputs = RANK_INPUTS.map((r, i) => {
+    const px = 232 + (i % 2) * 130, py = 108 + Math.floor(i / 2) * 44;
+    return `<g class="up" style="animation-delay:${(0.3 + i * 0.1).toFixed(1)}s"><text x="${px}" y="${py}" font-family="${FONT}" font-size="22" font-weight="700" fill="#f8fafc">${nf(r.value)}</text>
+<text x="${px}" y="${py + 17}" font-family="${FONT}" font-size="12" fill="#94a3b8">${esc(r.label)}</text></g>`;
+  }).join("\n");
+  const body = `<text x="32" y="46" font-family="${FONT}" font-size="20" font-weight="700" fill="#f8fafc">Activity rank</text>
+<text x="968" y="46" text-anchor="end" font-family="${FONT}" font-size="13" fill="#94a3b8">recalculated daily · last 12 months</text>
+<circle cx="112" cy="136" r="${R}" fill="none" stroke="#0f1830" stroke-width="12"/>
+<circle class="ring" style="--len:${LEN.toFixed(1)}" cx="112" cy="136" r="${R}" fill="none" stroke="url(#accent)" stroke-width="12" stroke-linecap="round" stroke-dasharray="${LEN.toFixed(1)}" stroke-dashoffset="${ringOffset.toFixed(1)}" transform="rotate(-90 112 136)"/>
+<text x="112" y="${rankLevel.length > 1 ? 148 : 150}" text-anchor="middle" font-family="${FONT}" font-size="${rankLevel.length > 1 ? 40 : 46}" font-weight="800" fill="#f8fafc">${esc(rankLevel)}</text>
+<text x="232" y="74" font-family="${FONT}" font-size="13" font-weight="600" fill="#2dd4bf">Top ${percentile.toFixed(0)}% by activity</text>
+${inputs}
+<text x="${CX}" y="68" font-family="${FONT}" font-size="13" font-weight="600" fill="#e2e8f0">Daily rank score</text>
+<text x="968" y="68" text-anchor="end" font-family="${MONO}" font-size="13" fill="#f59e0b">${(rankScore * 100).toFixed(1)} / 100 today</text>
+${chart}
+<text x="32" y="232" font-family="${FONT}" font-size="11.5" fill="#64748b">Weighted score of commits, pull requests, issues and reviews against fixed reference medians. Stars and followers are left out on purpose:</text>
+<text x="32" y="247" font-family="${FONT}" font-size="11.5" fill="#64748b">most of this work is private institutional software. Higher score is better; the trend line is the saved rank for each day.</text>`;
+  write("rank.svg", card(1000, 266, body, `Activity rank ${rankLevel}, top ${percentile.toFixed(0)} percent`));
+
+  // Save the daily history last, so a failed run can never leave a half-written file.
+  mkdirSync(dirname(HISTORY_FILE), { recursive: true });
+  const tmp = HISTORY_FILE + ".tmp";
+  writeFileSync(tmp, JSON.stringify(history, null, 2) + "\n");
+  renameSync(tmp, HISTORY_FILE);
+  console.log(`rank ${rankLevel} · top ${percentile.toFixed(1)}% · score ${(rankScore * 100).toFixed(1)} · history ${history.length} day(s)`);
 }

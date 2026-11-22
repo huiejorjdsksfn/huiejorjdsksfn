@@ -26,6 +26,8 @@
 @keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
 .sweep{animation:sweep 5s linear infinite}
 @keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.ring{animation:ring 1.7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ring{from{stroke-dashoffset:var(--len)}}
 .blink{animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .wave{animation:wave var(--d,12s) linear infinite}
@@ -55,7 +57,7 @@
 <g class="up" style="animation-delay:0.63s"><rect x="348" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="370" y="234" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">104</text>
 <text x="370" y="256" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">active days</text>
-<text x="370" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">of the last 371</text></g>
+<text x="370" y="274" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">of the last 365</text></g>
 <g class="up" style="animation-delay:0.75s"><rect x="664" y="188" width="304" height="96" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="686" y="234" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc">65</text>
 <text x="686" y="256" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#2dd4bf">busiest day</text>
