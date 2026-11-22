@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "icon": "church",
+      "title": "Church & NGO systems",
+      "lines": [
+        "Members, giving, treasury, registers,",
+        "certificates and a weekly bulletin"
+      ]
+    },
+    {
+      "icon": "hospital",
+      "title": "Hospital procurement",
+      "lines": [
+        "Requisition to purchase order, goods",
+        "received, vouchers and approvals"
+      ]
+    },
+    {
+      "icon": "coin",
+      "title": "Payments & messaging",
+      "lines": [
+        "M-Pesa and Equity Jenga callbacks,",
+        "email and WhatsApp notifications"
+      ]
+    },
+    {
+      "icon": "desktop",
+      "title": "Windows & desktop apps",
+      "lines": [
+        "WPF and Electron apps with installers",
+        "and automated releases"
+      ]
+    },
+    {
+      "icon": "shield",
+      "title": "Security & access design",
+      "lines": [
+        "Roles, row-level security, 2FA",
+        "and audit trails you can rely on"
+      ]
+    },
+    {
+      "icon": "migrate",
+      "title": "Migration & rescue",
+      "lines": [
+        "Move legacy SQL Server and ODBC data",
+        "to Postgres; stabilise live systems"
+      ]
+    }
+  ]
+}

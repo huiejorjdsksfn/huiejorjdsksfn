@@ -1,0 +1,53 @@
+name: Project enquiry
+description: Tell me about a system you need built, fixed or modernised.
+title: "[Enquiry] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for getting in touch. **Issues on GitHub are public**, so please don't post phone numbers,
+        passwords or private data here. Tell me about the project and I will reply and suggest a private
+        way to continue.
+  - type: input
+    id: organisation
+    attributes:
+      label: Organisation
+      description: Who is the system for? (a church, hospital, school, office, company...)
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What do you need?
+      options:
+        - A new management system (ERP)
+        - Procurement or finance workflow
+        - M-Pesa / Equity Jenga payment integration
+        - A Windows or desktop application
+        - Security, roles and access review
+        - Migrating or rescuing an existing system
+        - IT support, training or documentation
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Tell me about it
+      description: What problem are you solving, who will use it, and what exists today?
+    validations:
+      required: true
+  - type: dropdown
+    id: timeline
+    attributes:
+      label: When do you need it?
+      options:
+        - As soon as possible
+        - Within 1 to 3 months
+        - Later this year
+        - Just exploring
+  - type: input
+    id: contact
+    attributes:
+      label: Best way to reach you
+      description: A first name and the kind of channel (email, phone, WhatsApp) is enough. Please don't include the number or address here.

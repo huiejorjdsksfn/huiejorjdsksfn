@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="76" viewBox="0 0 440 76" role="img" aria-label="Start a project enquiry">
+<defs>
+<linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+<linearGradient id="s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="c"><rect x="4" y="4" width="432" height="68" rx="34"/></clipPath>
+</defs>
+<style>.shine{animation:shine 3.6s ease-in-out infinite}@keyframes shine{0%{transform:translateX(-140px)}60%,100%{transform:translateX(520px)}}.pop{transform-box:fill-box;transform-origin:center;animation:pop 3.6s ease-in-out infinite}@keyframes pop{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<rect x="4" y="4" width="432" height="68" rx="34" fill="url(#b)"/>
+<g clip-path="url(#c)"><rect class="shine" x="0" y="0" width="120" height="76" fill="url(#s)" transform="skewX(-20)"/></g>
+<text x="214" y="46" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="800" fill="#0b1220">Start a project enquiry</text>
+<g class="pop"><path d="M384 38h20m-7-8l8 8-8 8" fill="none" stroke="#0b1220" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

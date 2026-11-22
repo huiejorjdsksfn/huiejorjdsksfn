@@ -536,3 +536,89 @@ ${chart}
   renameSync(tmp, HISTORY_FILE);
   console.log(`rank ${rankLevel} · top ${percentile.toFixed(1)}% · score ${(rankScore * 100).toFixed(1)} · history ${history.length} day(s)`);
 }
+
+// ---- services grid ------------------------------------------------------------------------------
+const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "data");
+const readData = (n) => JSON.parse(readFileSync(join(DATA_DIR, n), "utf8"));
+{
+  const icon = (kind, cx, cy) => {
+    const A = "#2dd4bf", B = "#f59e0b";
+    switch (kind) {
+      case "church":
+        return `<path d="M${cx - 10} ${cy + 13}V${cy - 1}l10-7 10 7v14z" fill="none" stroke="${A}" stroke-width="2.2" stroke-linejoin="round"/><path d="M${cx} ${cy - 8}v-8m-3 3h6" stroke="${B}" stroke-width="2.2" stroke-linecap="round"/><path d="M${cx - 3.5} ${cy + 13}v-6a3.5 3.5 0 0 1 7 0v6" fill="none" stroke="${A}" stroke-width="2"/>`;
+      case "hospital":
+        return `<rect x="${cx - 4}" y="${cy - 12}" width="8" height="24" rx="2" fill="${A}"/><rect x="${cx - 12}" y="${cy - 4}" width="24" height="8" rx="2" fill="${A}"/>`;
+      case "coin":
+        return `<circle cx="${cx}" cy="${cy}" r="12" fill="none" stroke="${B}" stroke-width="2.2"/><text x="${cx}" y="${cy + 3.6}" text-anchor="middle" font-family="${FONT}" font-size="9.5" font-weight="700" fill="${B}">KSh</text>`;
+      case "desktop":
+        return `<rect x="${cx - 13}" y="${cy - 11}" width="26" height="18" rx="3" fill="none" stroke="${A}" stroke-width="2.2"/><path d="M${cx - 6} ${cy + 12}h12M${cx} ${cy + 7}v5" stroke="${A}" stroke-width="2.2" stroke-linecap="round"/>`;
+      case "shield":
+        return `<path d="M${cx} ${cy - 14}l11 4.5v8.5c0 8-5.5 12-11 15-5.5-3-11-7-11-15v-8.5z" fill="none" stroke="${B}" stroke-width="2.2" stroke-linejoin="round"/><path d="M${cx - 5} ${cy + 1}l4 4 7-8" fill="none" stroke="${B}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>`;
+      case "migrate":
+        return `<ellipse cx="${cx - 11}" cy="${cy - 7}" rx="6" ry="2.6" fill="none" stroke="${A}" stroke-width="2"/><path d="M${cx - 17} ${cy - 7}v12c0 1.5 2.7 2.6 6 2.6s6-1.1 6-2.6v-12" fill="none" stroke="${A}" stroke-width="2"/><ellipse cx="${cx + 11}" cy="${cy - 7}" rx="6" ry="2.6" fill="none" stroke="${B}" stroke-width="2"/><path d="M${cx + 5} ${cy - 7}v12c0 1.5 2.7 2.6 6 2.6s6-1.1 6-2.6v-12" fill="none" stroke="${B}" stroke-width="2"/><path d="M${cx - 4} ${cy + 1}h9m-3.5-3.5l3.5 3.5-3.5 3.5" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+      default:
+        return "";
+    }
+  };
+  const { services } = readData("services.json");
+  const TW = 306, TH = 128, GX = 16, GY = 16, PAD = 24;
+  const tiles = services
+    .map((sv, i) => {
+      const x = PAD + (i % 3) * (TW + GX);
+      const y = PAD + Math.floor(i / 3) * (TH + GY);
+      return `<g class="up" style="animation-delay:${(0.1 + i * 0.1).toFixed(1)}s">
+<rect x="${x}" y="${y}" width="${TW}" height="${TH}" rx="14" fill="#0f1830" stroke="#27324d"/>
+<rect x="${x}" y="${y + 18}" width="4" height="${TH - 36}" rx="2" fill="url(#accent)"/>
+<circle cx="${x + 46}" cy="${y + 40}" r="25" fill="#0b1220" stroke="#27324d"/>
+${icon(sv.icon, x + 46, y + 40)}
+<text x="${x + 84}" y="${y + 46}" font-family="${FONT}" font-size="16.5" font-weight="700" fill="#f8fafc">${esc(sv.title)}</text>
+${sv.lines.map((l, k) => `<text x="${x + 24}" y="${y + 90 + k * 19}" font-family="${FONT}" font-size="13.5" fill="#94a3b8">${esc(l)}</text>`).join("\n")}
+</g>`;
+    })
+    .join("\n");
+  const rows = Math.ceil(services.length / 3);
+  write("services.svg", card(1000, PAD * 2 + rows * TH + (rows - 1) * GY, tiles, "Services offered"));
+}
+
+// ---- delivery timeline --------------------------------------------------------------------------
+{
+  const { events } = readData("timeline.json");
+  const LY = 168, X0 = 140, STEP = (1000 - 2 * X0) / (events.length - 1);
+  const nodes = events
+    .map((e, i) => {
+      const x = X0 + i * STEP;
+      const up = i % 2 === 0;
+      const ty = up ? 58 : 214;
+      const stem = up ? `M${x} ${LY - 10}V${LY - 36}` : `M${x} ${LY + 10}V${LY + 34}`;
+      return `<g class="up" style="animation-delay:${(0.5 + i * 0.35).toFixed(2)}s">
+<path d="${stem}" stroke="#27324d" stroke-width="2"/>
+<text x="${x}" y="${ty}" text-anchor="middle" font-family="${FONT}" font-size="13" font-weight="700" fill="#f59e0b">${esc(e.when)}</text>
+<text x="${x}" y="${ty + 24}" text-anchor="middle" font-family="${FONT}" font-size="16" font-weight="700" fill="#f8fafc">${esc(e.title)}</text>
+${e.lines.map((l, k) => `<text x="${x}" y="${ty + 44 + k * 17}" text-anchor="middle" font-family="${FONT}" font-size="12.5" fill="#94a3b8">${esc(l)}</text>`).join("\n")}
+<circle cx="${x}" cy="${LY}" r="12" fill="#2dd4bf" fill-opacity="0.18"/>
+<circle cx="${x}" cy="${LY}" r="6.5" fill="${i === events.length - 1 ? "#f59e0b" : "#2dd4bf"}"/>
+</g>`;
+    })
+    .join("\n");
+  const body = `<rect class="grow" style="animation-duration:1.8s" x="${X0 - 60}" y="${LY - 1.5}" width="${1000 - 2 * X0 + 120}" height="3" rx="1.5" fill="url(#accent)"/>
+${nodes}`;
+  write("timeline.svg", card(1000, 330, body, "Delivery timeline for 2026"));
+}
+
+// ---- call-to-action button ----------------------------------------------------------------------
+write(
+  "cta.svg",
+  `<svg xmlns="http://www.w3.org/2000/svg" width="440" height="76" viewBox="0 0 440 76" role="img" aria-label="Start a project enquiry">
+<defs>
+<linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+<linearGradient id="s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="c"><rect x="4" y="4" width="432" height="68" rx="34"/></clipPath>
+</defs>
+<style>.shine{animation:shine 3.6s ease-in-out infinite}@keyframes shine{0%{transform:translateX(-140px)}60%,100%{transform:translateX(520px)}}.pop{transform-box:fill-box;transform-origin:center;animation:pop 3.6s ease-in-out infinite}@keyframes pop{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<rect x="4" y="4" width="432" height="68" rx="34" fill="url(#b)"/>
+<g clip-path="url(#c)"><rect class="shine" x="0" y="0" width="120" height="76" fill="url(#s)" transform="skewX(-20)"/></g>
+<text x="214" y="46" text-anchor="middle" font-family="${FONT}" font-size="22" font-weight="800" fill="#0b1220">Start a project enquiry</text>
+<g class="pop"><path d="M384 38h20m-7-8l8 8-8 8" fill="none" stroke="#0b1220" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>
+`,
+);

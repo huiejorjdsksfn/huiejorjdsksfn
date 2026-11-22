@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330" role="img" aria-label="Delivery timeline for 2026">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111a33"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
+  </linearGradient>
+</defs>
+<style>
+.up{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.grow{transform-box:fill-box;transform-origin:left center;animation:grow 1.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.rise{transform-box:fill-box;transform-origin:center bottom;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:scaleY(0)}}
+.flt{transform-box:fill-box;transform-origin:center;animation:flt var(--d,6s) ease-in-out var(--t,0s) infinite}
+@keyframes flt{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(6px,-12px) rotate(2.5deg)}66%{transform:translate(-5px,-5px) rotate(-2deg)}}
+.drift{transform-box:fill-box;transform-origin:center;animation:drift var(--d,14s) ease-in-out var(--t,0s) infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-26px,14px) scale(1.06)}}
+.tw{animation:tw var(--d,4s) ease-in-out var(--t,0s) infinite}
+@keyframes tw{0%,100%{opacity:var(--b)}50%{opacity:calc(var(--b) + .45)}}
+.shim{animation:shim 5s ease-in-out var(--t,0s) infinite}
+@keyframes shim{0%,100%{opacity:1}50%{opacity:.45}}
+.bar{transform-box:fill-box;transform-origin:left center;animation:bar 5s ease-in-out infinite}
+@keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
+.sweep{animation:sweep 5s linear infinite}
+@keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.ring{animation:ring 1.7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ring{from{stroke-dashoffset:var(--len)}}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.wave{animation:wave var(--d,12s) linear infinite}
+@keyframes wave{to{transform:translateX(-1000px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect width="1000" height="330" rx="16" fill="url(#bg)"/>
+<rect x="0.5" y="0.5" width="999" height="329" rx="15.5" fill="none" stroke="#27324d"/>
+<rect class="grow" style="animation-duration:1.8s" x="80" y="166.5" width="840" height="3" rx="1.5" fill="url(#accent)"/>
+<g class="up" style="animation-delay:0.50s">
+<path d="M140 158V132" stroke="#27324d" stroke-width="2"/>
+<text x="140" y="58" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">Mar – Jun 2026</text>
+<text x="140" y="82" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#f8fafc">MediProcure Hub</text>
+<text x="140" y="102" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">Hospital procurement ERP</text>
+<text x="140" y="119" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">built from first version to v12+</text>
+<circle cx="140" cy="168" r="12" fill="#2dd4bf" fill-opacity="0.18"/>
+<circle cx="140" cy="168" r="6.5" fill="#2dd4bf"/>
+</g>
+<g class="up" style="animation-delay:0.85s">
+<path d="M320 178V202" stroke="#27324d" stroke-width="2"/>
+<text x="320" y="214" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">Jul 2026</text>
+<text x="320" y="238" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#f8fafc">Hardening and control</text>
+<text x="320" y="258" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">Security review, 3-way invoice</text>
+<text x="320" y="275" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">matching, live health monitoring</text>
+<circle cx="320" cy="168" r="12" fill="#2dd4bf" fill-opacity="0.18"/>
+<circle cx="320" cy="168" r="6.5" fill="#2dd4bf"/>
+</g>
+<g class="up" style="animation-delay:1.20s">
+<path d="M500 158V132" stroke="#27324d" stroke-width="2"/>
+<text x="500" y="58" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">Aug 2026</text>
+<text x="500" y="82" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#f8fafc">Kanyange Connect begins</text>
+<text x="500" y="102" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">Parish ERP started 12 Aug; WhatsApp</text>
+<text x="500" y="119" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">gateway replaces a paid provider</text>
+<circle cx="500" cy="168" r="12" fill="#2dd4bf" fill-opacity="0.18"/>
+<circle cx="500" cy="168" r="6.5" fill="#2dd4bf"/>
+</g>
+<g class="up" style="animation-delay:1.55s">
+<path d="M680 178V202" stroke="#27324d" stroke-width="2"/>
+<text x="680" y="214" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">Sep – Oct 2026</text>
+<text x="680" y="238" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#f8fafc">Core modules ship</text>
+<text x="680" y="258" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">Registers, giving, departments,</text>
+<text x="680" y="275" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">certificates and a data-entry desk</text>
+<circle cx="680" cy="168" r="12" fill="#2dd4bf" fill-opacity="0.18"/>
+<circle cx="680" cy="168" r="6.5" fill="#2dd4bf"/>
+</g>
+<g class="up" style="animation-delay:1.90s">
+<path d="M860 158V132" stroke="#27324d" stroke-width="2"/>
+<text x="860" y="58" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">Nov 2026</text>
+<text x="860" y="82" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#f8fafc">ERP, payments, desktop</text>
+<text x="860" y="102" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">Finance modules, M-Pesa and Jenga,</text>
+<text x="860" y="119" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#94a3b8">bulletin studio, Windows suite</text>
+<circle cx="860" cy="168" r="12" fill="#2dd4bf" fill-opacity="0.18"/>
+<circle cx="860" cy="168" r="6.5" fill="#f59e0b"/>
+</g>
+</svg>

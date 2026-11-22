@@ -1,0 +1,9 @@
+{
+  "events": [
+    { "when": "Mar – Jun 2026", "title": "MediProcure Hub", "lines": ["Hospital procurement ERP", "built from first version to v12+"] },
+    { "when": "Jul 2026", "title": "Hardening and control", "lines": ["Security review, 3-way invoice", "matching, live health monitoring"] },
+    { "when": "Aug 2026", "title": "Kanyange Connect begins", "lines": ["Parish ERP started 12 Aug; WhatsApp", "gateway replaces a paid provider"] },
+    { "when": "Sep – Oct 2026", "title": "Core modules ship", "lines": ["Registers, giving, departments,", "certificates and a data-entry desk"] },
+    { "when": "Nov 2026", "title": "ERP, payments, desktop", "lines": ["Finance modules, M-Pesa and Jenga,", "bulletin studio, Windows suite"] }
+  ]
+}

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" role="img" aria-label="Services offered">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111a33"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#f59e0b"/>
+  </linearGradient>
+</defs>
+<style>
+.up{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
+.grow{transform-box:fill-box;transform-origin:left center;animation:grow 1.3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.rise{transform-box:fill-box;transform-origin:center bottom;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:scaleY(0)}}
+.flt{transform-box:fill-box;transform-origin:center;animation:flt var(--d,6s) ease-in-out var(--t,0s) infinite}
+@keyframes flt{0%,100%{transform:translate(0,0) rotate(0deg)}33%{transform:translate(6px,-12px) rotate(2.5deg)}66%{transform:translate(-5px,-5px) rotate(-2deg)}}
+.drift{transform-box:fill-box;transform-origin:center;animation:drift var(--d,14s) ease-in-out var(--t,0s) infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-26px,14px) scale(1.06)}}
+.tw{animation:tw var(--d,4s) ease-in-out var(--t,0s) infinite}
+@keyframes tw{0%,100%{opacity:var(--b)}50%{opacity:calc(var(--b) + .45)}}
+.shim{animation:shim 5s ease-in-out var(--t,0s) infinite}
+@keyframes shim{0%,100%{opacity:1}50%{opacity:.45}}
+.bar{transform-box:fill-box;transform-origin:left center;animation:bar 5s ease-in-out infinite}
+@keyframes bar{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.9)}}
+.sweep{animation:sweep 5s linear infinite}
+@keyframes sweep{from{transform:translateX(-260px)}to{transform:translateX(1060px)}}
+.ring{animation:ring 1.7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ring{from{stroke-dashoffset:var(--len)}}
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.wave{animation:wave var(--d,12s) linear infinite}
+@keyframes wave{to{transform:translateX(-1000px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<rect width="1000" height="320" rx="16" fill="url(#bg)"/>
+<rect x="0.5" y="0.5" width="999" height="319" rx="15.5" fill="none" stroke="#27324d"/>
+<g class="up" style="animation-delay:0.1s">
+<rect x="24" y="24" width="306" height="128" rx="14" fill="#0f1830" stroke="#27324d"/>
+<rect x="24" y="42" width="4" height="92" rx="2" fill="url(#accent)"/>
+<circle cx="70" cy="64" r="25" fill="#0b1220" stroke="#27324d"/>
+<path d="M60 77V63l10-7 10 7v14z" fill="none" stroke="#2dd4bf" stroke-width="2.2" stroke-linejoin="round"/><path d="M70 56v-8m-3 3h6" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round"/><path d="M66.5 77v-6a3.5 3.5 0 0 1 7 0v6" fill="none" stroke="#2dd4bf" stroke-width="2"/>
+<text x="108" y="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16.5" font-weight="700" fill="#f8fafc">Church &amp; NGO systems</text>
+<text x="48" y="114" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">Members, giving, treasury, registers,</text>
+<text x="48" y="133" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">certificates and a weekly bulletin</text>
+</g>
+<g class="up" style="animation-delay:0.2s">
+<rect x="346" y="24" width="306" height="128" rx="14" fill="#0f1830" stroke="#27324d"/>
+<rect x="346" y="42" width="4" height="92" rx="2" fill="url(#accent)"/>
+<circle cx="392" cy="64" r="25" fill="#0b1220" stroke="#27324d"/>
+<rect x="388" y="52" width="8" height="24" rx="2" fill="#2dd4bf"/><rect x="380" y="60" width="24" height="8" rx="2" fill="#2dd4bf"/>
+<text x="430" y="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16.5" font-weight="700" fill="#f8fafc">Hospital procurement</text>
+<text x="370" y="114" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">Requisition to purchase order, goods</text>
+<text x="370" y="133" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">received, vouchers and approvals</text>
+</g>
+<g class="up" style="animation-delay:0.3s">
+<rect x="668" y="24" width="306" height="128" rx="14" fill="#0f1830" stroke="#27324d"/>
+<rect x="668" y="42" width="4" height="92" rx="2" fill="url(#accent)"/>
+<circle cx="714" cy="64" r="25" fill="#0b1220" stroke="#27324d"/>
+<circle cx="714" cy="64" r="12" fill="none" stroke="#f59e0b" stroke-width="2.2"/><text x="714" y="67.6" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="700" fill="#f59e0b">KSh</text>
+<text x="752" y="70" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16.5" font-weight="700" fill="#f8fafc">Payments &amp; messaging</text>
+<text x="692" y="114" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">M-Pesa and Equity Jenga callbacks,</text>
+<text x="692" y="133" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">email and WhatsApp notifications</text>
+</g>
+<g class="up" style="animation-delay:0.4s">
+<rect x="24" y="168" width="306" height="128" rx="14" fill="#0f1830" stroke="#27324d"/>
+<rect x="24" y="186" width="4" height="92" rx="2" fill="url(#accent)"/>
+<circle cx="70" cy="208" r="25" fill="#0b1220" stroke="#27324d"/>
+<rect x="57" y="197" width="26" height="18" rx="3" fill="none" stroke="#2dd4bf" stroke-width="2.2"/><path d="M64 220h12M70 215v5" stroke="#2dd4bf" stroke-width="2.2" stroke-linecap="round"/>
+<text x="108" y="214" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16.5" font-weight="700" fill="#f8fafc">Windows &amp; desktop apps</text>
+<text x="48" y="258" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">WPF and Electron apps with installers</text>
+<text x="48" y="277" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">and automated releases</text>
+</g>
+<g class="up" style="animation-delay:0.5s">
+<rect x="346" y="168" width="306" height="128" rx="14" fill="#0f1830" stroke="#27324d"/>
+<rect x="346" y="186" width="4" height="92" rx="2" fill="url(#accent)"/>
+<circle cx="392" cy="208" r="25" fill="#0b1220" stroke="#27324d"/>
+<path d="M392 194l11 4.5v8.5c0 8-5.5 12-11 15-5.5-3-11-7-11-15v-8.5z" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/><path d="M387 209l4 4 7-8" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="430" y="214" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16.5" font-weight="700" fill="#f8fafc">Security &amp; access design</text>
+<text x="370" y="258" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">Roles, row-level security, 2FA</text>
+<text x="370" y="277" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">and audit trails you can rely on</text>
+</g>
+<g class="up" style="animation-delay:0.6s">
+<rect x="668" y="168" width="306" height="128" rx="14" fill="#0f1830" stroke="#27324d"/>
+<rect x="668" y="186" width="4" height="92" rx="2" fill="url(#accent)"/>
+<circle cx="714" cy="208" r="25" fill="#0b1220" stroke="#27324d"/>
+<ellipse cx="703" cy="201" rx="6" ry="2.6" fill="none" stroke="#2dd4bf" stroke-width="2"/><path d="M697 201v12c0 1.5 2.7 2.6 6 2.6s6-1.1 6-2.6v-12" fill="none" stroke="#2dd4bf" stroke-width="2"/><ellipse cx="725" cy="201" rx="6" ry="2.6" fill="none" stroke="#f59e0b" stroke-width="2"/><path d="M719 201v12c0 1.5 2.7 2.6 6 2.6s6-1.1 6-2.6v-12" fill="none" stroke="#f59e0b" stroke-width="2"/><path d="M710 209h9m-3.5-3.5l3.5 3.5-3.5 3.5" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="752" y="214" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16.5" font-weight="700" fill="#f8fafc">Migration &amp; rescue</text>
+<text x="692" y="258" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">Move legacy SQL Server and ODBC data</text>
+<text x="692" y="277" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" fill="#94a3b8">to Postgres; stabilise live systems</text>
+</g>
+</svg>
