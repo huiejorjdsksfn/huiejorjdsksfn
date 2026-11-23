@@ -416,6 +416,7 @@
 <rect class="shim" style="--t:4.59s" x="848" y="164" width="13" height="13" rx="3" fill="#14b8a6"><title>2026-11-20: 4</title></rect>
 <rect class="shim" style="--t:4.59s" x="848" y="180" width="13" height="13" rx="3" fill="#14b8a6"><title>2026-11-21: 5</title></rect>
 <rect x="864" y="84" width="13" height="13" rx="3" fill="#131c33"><title>2026-11-22: 0</title></rect>
+<rect x="864" y="100" width="13" height="13" rx="3" fill="#131c33"><title>2026-11-23: 0</title></rect>
 <text x="748" y="219" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Less</text>
 <rect x="756" y="208" width="13" height="13" rx="3" fill="#131c33"/><rect x="773" y="208" width="13" height="13" rx="3" fill="#0f766e"/><rect x="790" y="208" width="13" height="13" rx="3" fill="#14b8a6"/><rect x="807" y="208" width="13" height="13" rx="3" fill="#5eead4"/><rect x="824" y="208" width="13" height="13" rx="3" fill="#f59e0b"/>
 <text x="877" y="219" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">More</text>
