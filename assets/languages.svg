@@ -40,15 +40,15 @@
 <text x="968" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">share of code across 56 repositories, as counted by GitHub</text>
 <text x="32" y="91" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">TypeScript</text>
 <rect x="190" y="78" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
-<rect class="grow" style="animation-delay:0.20s" x="190" y="78" width="357.4813830007232" height="16" rx="8" fill="#2dd4bf"/>
+<rect class="grow" style="animation-delay:0.20s" x="190" y="78" width="357.73426519026646" height="16" rx="8" fill="#2dd4bf"/>
 <text x="968" y="91" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">55.9%</text>
 <text x="32" y="127" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">HTML</text>
 <rect x="190" y="114" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
-<rect class="grow" style="animation-delay:0.35s" x="190" y="114" width="233.1606291371672" height="16" rx="8" fill="#f59e0b"/>
+<rect class="grow" style="animation-delay:0.35s" x="190" y="114" width="232.95192724333185" height="16" rx="8" fill="#f59e0b"/>
 <text x="968" y="127" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">36.4%</text>
 <text x="32" y="163" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">PLpgSQL</text>
 <rect x="190" y="150" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>
-<rect class="grow" style="animation-delay:0.50s" x="190" y="150" width="26.240680676473637" height="16" rx="8" fill="#818cf8"/>
+<rect class="grow" style="animation-delay:0.50s" x="190" y="150" width="26.217192664055013" height="16" rx="8" fill="#818cf8"/>
 <text x="968" y="163" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="14" fill="#94a3b8">4.1%</text>
 <text x="32" y="199" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">JavaScript</text>
 <rect x="190" y="186" width="640" height="16" rx="8" fill="#0f1830" stroke="#27324d"/>

@@ -40,36 +40,36 @@
 <text x="968" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">last 12 months</text>
 <text x="592" y="76" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Weekly rhythm</text>
 <g class="up" style="animation-delay:0.10s"><rect x="32" y="76" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
-<text x="50" y="106" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">0</tspan><tspan dx="8" font-size="13" fill="#94a3b8">days</tspan></text>
+<text x="50" y="106" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">2</tspan><tspan dx="8" font-size="13" fill="#94a3b8">days</tspan></text>
 <text x="50" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#2dd4bf">current streak</text></g>
 <g class="up" style="animation-delay:0.22s"><rect x="284" y="76" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="302" y="106" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">13</tspan><tspan dx="8" font-size="13" fill="#94a3b8">days</tspan></text>
 <text x="302" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#2dd4bf">longest streak</text></g>
 <g class="up" style="animation-delay:0.34s"><rect x="32" y="152" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
-<text x="50" y="182" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">Wed</tspan><tspan dx="8" font-size="13" fill="#94a3b8">231 contributions</tspan></text>
+<text x="50" y="182" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">Wed</tspan><tspan dx="8" font-size="13" fill="#94a3b8">234 contributions</tspan></text>
 <text x="50" y="202" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#2dd4bf">most active weekday</text></g>
 <g class="up" style="animation-delay:0.46s"><rect x="284" y="152" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="302" y="182" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">May</tspan><tspan dx="8" font-size="13" fill="#94a3b8">390 in 2026</tspan></text>
 <text x="302" y="202" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#2dd4bf">best month</text></g>
 <rect x="592" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.20s" x="592" y="140.62337662337663" width="34" height="55.37662337662338" rx="8" fill="#14b8a6"><title>Sun: 123</title></rect>
+<rect class="rise" style="animation-delay:0.20s" x="592" y="141.33333333333334" width="34" height="54.666666666666664" rx="8" fill="#14b8a6"><title>Sun: 123</title></rect>
 <text x="609" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Sun</text>
 <rect x="642" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.30s" x="642" y="126.21645021645021" width="34" height="69.78354978354979" rx="8" fill="#14b8a6"><title>Mon: 155</title></rect>
+<rect class="rise" style="animation-delay:0.30s" x="642" y="127.11111111111111" width="34" height="68.88888888888889" rx="8" fill="#14b8a6"><title>Mon: 155</title></rect>
 <text x="659" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Mon</text>
 <rect x="692" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.40s" x="692" y="113.6103896103896" width="34" height="82.3896103896104" rx="8" fill="#14b8a6"><title>Tue: 183</title></rect>
+<rect class="rise" style="animation-delay:0.40s" x="692" y="113.77777777777777" width="34" height="82.22222222222223" rx="8" fill="#14b8a6"><title>Tue: 185</title></rect>
 <text x="709" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Tue</text>
 <rect x="742" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.50s" x="742" y="92" width="34" height="104" rx="8" fill="#f59e0b"><title>Wed: 231</title></rect>
+<rect class="rise" style="animation-delay:0.50s" x="742" y="92" width="34" height="104" rx="8" fill="#f59e0b"><title>Wed: 234</title></rect>
 <text x="759" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#f59e0b">Wed</text>
 <rect x="792" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.60s" x="792" y="99.65367965367966" width="34" height="96.34632034632034" rx="8" fill="#14b8a6"><title>Thu: 214</title></rect>
+<rect class="rise" style="animation-delay:0.60s" x="792" y="100.88888888888889" width="34" height="95.11111111111111" rx="8" fill="#14b8a6"><title>Thu: 214</title></rect>
 <text x="809" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Thu</text>
 <rect x="842" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.70s" x="842" y="131.16883116883116" width="34" height="64.83116883116882" rx="8" fill="#14b8a6"><title>Fri: 144</title></rect>
+<rect class="rise" style="animation-delay:0.70s" x="842" y="132" width="34" height="64" rx="8" fill="#14b8a6"><title>Fri: 144</title></rect>
 <text x="859" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Fri</text>
 <rect x="892" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.80s" x="892" y="110.45887445887446" width="34" height="85.54112554112554" rx="8" fill="#14b8a6"><title>Sat: 190</title></rect>
+<rect class="rise" style="animation-delay:0.80s" x="892" y="111.55555555555556" width="34" height="84.44444444444444" rx="8" fill="#14b8a6"><title>Sat: 190</title></rect>
 <text x="909" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Sat</text>
 </svg>
