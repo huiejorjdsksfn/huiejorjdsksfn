@@ -40,7 +40,7 @@
 <text x="968" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">last 12 months</text>
 <text x="592" y="76" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Weekly rhythm</text>
 <g class="up" style="animation-delay:0.10s"><rect x="32" y="76" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
-<text x="50" y="106" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">2</tspan><tspan dx="8" font-size="13" fill="#94a3b8">days</tspan></text>
+<text x="50" y="106" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">3</tspan><tspan dx="8" font-size="13" fill="#94a3b8">days</tspan></text>
 <text x="50" y="126" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#2dd4bf">current streak</text></g>
 <g class="up" style="animation-delay:0.22s"><rect x="284" y="76" width="236" height="64" rx="12" fill="#0f1830" stroke="#27324d"/>
 <text x="302" y="106" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"><tspan font-size="26" font-weight="700" fill="#f8fafc">13</tspan><tspan dx="8" font-size="13" fill="#94a3b8">days</tspan></text>
@@ -64,7 +64,7 @@
 <rect class="rise" style="animation-delay:0.50s" x="742" y="92" width="34" height="104" rx="8" fill="#f59e0b"><title>Wed: 234</title></rect>
 <text x="759" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#f59e0b">Wed</text>
 <rect x="792" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
-<rect class="rise" style="animation-delay:0.60s" x="792" y="100.88888888888889" width="34" height="95.11111111111111" rx="8" fill="#14b8a6"><title>Thu: 214</title></rect>
+<rect class="rise" style="animation-delay:0.60s" x="792" y="100.44444444444444" width="34" height="95.55555555555556" rx="8" fill="#14b8a6"><title>Thu: 215</title></rect>
 <text x="809" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">Thu</text>
 <rect x="842" y="92" width="34" height="104" rx="8" fill="#0f1830"/>
 <rect class="rise" style="animation-delay:0.70s" x="842" y="132" width="34" height="64" rx="8" fill="#14b8a6"><title>Fri: 144</title></rect>
