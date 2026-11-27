@@ -39,25 +39,25 @@
 <text x="32" y="46" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Activity rank</text>
 <text x="968" y="46" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#94a3b8">recalculated daily · last 12 months</text>
 <circle cx="112" cy="136" r="58" fill="none" stroke="#0f1830" stroke-width="12"/>
-<circle class="ring" style="--len:364.4" cx="112" cy="136" r="58" fill="none" stroke="url(#accent)" stroke-width="12" stroke-linecap="round" stroke-dasharray="364.4" stroke-dashoffset="180.2" transform="rotate(-90 112 136)"/>
+<circle class="ring" style="--len:364.4" cx="112" cy="136" r="58" fill="none" stroke="url(#accent)" stroke-width="12" stroke-linecap="round" stroke-dasharray="364.4" stroke-dashoffset="177.8" transform="rotate(-90 112 136)"/>
 <text x="112" y="148" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="800" fill="#f8fafc">B+</text>
 <text x="232" y="74" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#2dd4bf">Top 49% by activity</text>
-<g class="up" style="animation-delay:0.3s"><text x="232" y="108" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">1,171</text>
+<g class="up" style="animation-delay:0.3s"><text x="232" y="108" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">1,172</text>
 <text x="232" y="125" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">commits</text></g>
-<g class="up" style="animation-delay:0.4s"><text x="362" y="108" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">42</text>
+<g class="up" style="animation-delay:0.4s"><text x="362" y="108" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">44</text>
 <text x="362" y="125" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">pull requests</text></g>
 <g class="up" style="animation-delay:0.5s"><text x="232" y="152" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">0</text>
 <text x="232" y="169" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">issues</text></g>
 <g class="up" style="animation-delay:0.6s"><text x="362" y="152" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#f8fafc">1</text>
 <text x="362" y="169" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">reviews</text></g>
 <text x="520" y="68" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Daily rank score</text>
-<text x="968" y="68" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="13" fill="#f59e0b">50.6 / 100 today</text>
+<text x="968" y="68" text-anchor="end" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="13" fill="#f59e0b">51.2 / 100 today</text>
 <defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2dd4bf" stop-opacity="0.35"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></linearGradient></defs>
-<polygon points="520,174 520.0,132.3 632.0,132.3 744.0,132.3 856.0,115.7 968.0,115.7 968,174" fill="url(#fill)"/>
-<polyline points="520.0,132.3 632.0,132.3 744.0,132.3 856.0,115.7 968.0,115.7" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="968" cy="115.7" r="5" fill="#f59e0b"/>
+<polygon points="520,174 520.0,140.7 609.6,140.7 699.2,140.7 788.8,127.3 878.4,127.3 968.0,107.3 968,174" fill="url(#fill)"/>
+<polyline points="520.0,140.7 609.6,140.7 699.2,140.7 788.8,127.3 878.4,127.3 968.0,107.3" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="968" cy="107.3" r="5" fill="#f59e0b"/>
 <text x="520" y="196" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">2026-11-22</text>
-<text x="968" y="196" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">2026-11-26</text>
+<text x="968" y="196" text-anchor="end" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#94a3b8">2026-11-27</text>
 <text x="32" y="232" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#64748b">Weighted score of commits, pull requests, issues and reviews against fixed reference medians. Stars and followers are left out on purpose:</text>
 <text x="32" y="247" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#64748b">most of this work is private institutional software. Higher score is better; the trend line is the saved rank for each day.</text>
 </svg>
